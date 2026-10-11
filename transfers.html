@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAY KING FOOTBALL | Տրանսֆերներ</title>
+
+<style>
+:root {
+  --bg: #070b16;
+  --panel: #111a2c;
+  --border: #263650;
+  --red: #ed174c;
+  --blue: #0756c9;
+  --text: #f5f7ff;
+  --muted: #aab8d0;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+header {
+  padding: 26px 16px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, #164eaa 0, transparent 38%),
+    linear-gradient(120deg, #08142e, #650d2b);
+  border-bottom: 1px solid #293a59;
+}
+.logo {
+  font-size: clamp(25px, 5vw, 42px);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.logo span { color: #ff315c; }
+header p { color: #d1d9e9; }
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  background: #0d1424;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #18253c;
+}
+nav a:hover {
+  background: var(--blue);
+}
+
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 22px 16px;
+}
+h1 { margin-top: 0; }
+
+.intro {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 11px;
+  margin: 22px 0;
+}
+input, select {
+  width: 100%;
+  padding: 13px;
+  color: white;
+  background: #111b2e;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 14px;
+  outline: none;
+}
+input:focus, select:focus {
+  border-color: #3985ff;
+}
+select option { background: #111b2e; }
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+#resultCount { color: #c3d3ee; }
+
+.reset {
+  color: white;
+  background: #263650;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.reset:hover { background: #354d70; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 18px;
+}
+.card {
+  overflow: hidden;
+  background: linear-gradient(155deg, #15223a, #0e1525);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: transform .2s, border-color .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #397cf0;
+}
+.photo {
+  position: relative;
+  height: 235px;
+  background: linear-gradient(135deg, #102d67, #68152e);
+  overflow: hidden;
+}
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+.photo .number {
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  font-size: 54px;
+  font-weight: 900;
+  color: #ffffff35;
+}
+.card-content { padding: 16px; }
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 21px;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #087b50;
+  color: white;
+}
+.badge.academy { background: #7650bd; }
+.teams {
+  display: grid;
+  grid-template-columns: 1fr 25px 1fr;
+  gap: 6px;
+  align-items: center;
+  margin: 17px 0;
+}
+.team {
+  padding: 10px 5px;
+  text-align: center;
+  background: #202e46;
+  border-radius: 8px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.arrow {
+  text-align: center;
+  color: #ff4168;
+  font-size: 23px;
+  font-weight: bold;
+}
+.info {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.source {
+  display: inline-block;
+  margin-top: 12px;
+  color: #8cbaff;
+  text-decoration: none;
+  font-size: 13px;
+}
+.source:hover { text-decoration: underline; }
+
+.empty {
+  display: none;
+  padding: 35px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--panel);
+  border-radius: 12px;
+}
+.note {
+  margin-top: 24px;
+  padding: 14px;
+  color: var(--muted);
+  background: #111a2c;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+footer {
+  padding: 25px;
+  text-align: center;
+  color: #8c9bb5;
+  border-top: 1px solid var(--border);
+}
+footer a { color: #8cbaff; }
+
+@media (max-width: 500px) {
+  main { padding: 18px 12px; }
+  .photo { height: 260px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">👑 HAY KING <span>FOOTBALL</span></div>
+  <p>Ֆուտբոլային նորություններ • Տրանսֆերներ • Ակումբներ</p>
+</header>
+
+<nav>
+  <a href="index.html">Գլխավոր</a>
+  <a href="transfers.html">Տրանսֆերներ</a>
+  <a href="news.html">Նորություններ</a>
+  <a href="index.html#teams">Թիմեր</a>
+</nav>
+
+<main>
+  <h1>⚽ Տրանսֆերային շուկա</h1>
+  <p class="intro">
+    «Բարսելոնայի» 2026 թվականի ամառային տրանսֆերներ։
+    Փնտրիր ֆուտբոլիստներին և ընտրիր անհրաժեշտ ֆիլտրերը։
+  </p>
+
+  <section class="filters">
+    <input id="search" type="search"
+      placeholder="🔎 Ֆուտբոլիստ կամ ակումբ...">
+
+    <select id="direction">
+      <option value="all">Բոլոր տեղափոխությունները</option>
+      <option value="in">Եկել է ակումբ</option>
+      <option value="out">Հեռացել է ակումբից</option>
+      <option value="academy">Ակադեմիայից առաջին թիմ</option>
+    </select>
+
+    <select id="type">
+      <option value="all">Բոլոր տեսակները</option>
+      <option value="Գնում">Գնում</option>
+      <option value="Վաճառք">Վաճառք</option>
+      <option value="Վարձակալություն">Վարձակալություն</option>
+      <option value="Ակադեմիայից">Ակադեմիայից</option>
+    </select>
+
+    <select id="status">
+      <option value="all">Բոլոր կարգավիճակները</option>
+      <option value="official">Պաշտոնական</option>
+      <option value="rumor">Լուր</option>
+      <option value="rejected">Մերժված</option>
+    </select>
+
+    <select id="club">
+      <option value="all">Բոլոր ակումբները</option>
+      <option value="Barcelona">Barcelona</option>
+      
+      <option value="Manchester City">Manchester City</option>
+      <option value="Al Hilal">Al Hilal</option>
+      <option value="Arsenal">Arsenal</option>
+      <option value="Fenerbahçe">Fenerbahçe</option>
+      <option value="Borussia Dortmund">Borussia Dortmund</option>
+      <option value="Newcastle United">Newcastle United</option>
+      <option value="PSG">PSG</option>
+      <option value="Liverpool">Liverpool</option>
+      <option value="Ajax">Ajax</option>
+      <option value="AS Monaco">AS Monaco</option>
+      <option value="Panathinaikos">Panathinaikos</option>
+      <option value="SC Braga">SC Braga</option>
+      <option value="Venezia">Venezia</option>
+      <option value="Real Sociedad">Real Sociedad</option>
+      <option value="Antwerp">Antwerp</option>
+      <option value="Deportivo A Coruña">Deportivo A Coruña</option>
+    </select>
+  </section>
+
+  <div class="toolbar">
+    <span id="resultCount">Բեռնվում է...</span>
+    <button class="reset" id="reset">Մաքրել ֆիլտրերը</button>
+  </div>
+
+  <section class="cards" id="cards"></section>
+  <div class="empty" id="empty">Այս ֆիլտրերով տրանսֆեր չի գտնվել։</div>
+
+  <div class="note">
+    ℹ️ Տրանսֆերների տվյալներն ու ամսաթվերը վերցված են
+    «Բարսելոնայի» պաշտոնական տրանսֆերային էջից։
+    Տրանսֆերային գումարները դիտավորյալ նշված չեն, քանի դեռ
+    դրանք առանձին չեն հաստատվել։
+    <br>
+    Նկարները բեռնվում են առցանց։ Եթե նկարը չբեռնվի,
+    քարտի մնացած տվյալները կշարունակեն աշխատել։
+  </div>
+</main>
+
+<footer>
+  HAY KING FOOTBALL © 2026
+  <br>
+  <a href="https://www.fcbarcelona.com/en/transfer-market/"
+     target="_blank" rel="noopener">
+    Բարսելոնայի պաշտոնական տրանսֆերներ
+  </a>
+</footer>
+
+<script>
+const SOURCE =
+  "https://www.fcbarcelona.com/en/transfer-market/";
+
+const transfers = [
+  {
+    name: "Rodri",
+    wiki: "Rodri_(footballer,_born_1996)",
+    from: "Manchester City",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "18.08.2026"
+  },
+  {
+    name: "João Cancelo",
+    wiki: "João_Cancelo",
+    from: "Al Hilal",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "20.08.2026"
+  },
+  {
+    name: "Gabriel Jesus",
+    wiki: "Gabriel_Jesus",
+    from: "Arsenal",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "01.09.2026"
+  },
+  {
+    name: "Dominik Livaković",
+    wiki: "Dominik_Livaković",
+    from: "Fenerbahçe",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "27.08.2026"
+  },
+  {
+    name: "Karim Adeyemi",
+    wiki: "Karim_Adeyemi",
+    from: "Borussia Dortmund",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "23.07.2026"
+  },
+  {
+    name: "Anthony Gordon",
+    wiki: "Anthony_Gordon_(footballer)",
+    from: "Newcastle United",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "29.05.2026"
+  },
+  {
+    name: "Jesse Bisiwu",
+    wiki: "Jesse_Bisiwu",
+    from: "Նախորդ ակումբը՝ աղբյուրում չի նշվել",
+    to: "Barcelona",
+    type: "Գնում",
+    dir: "in",
+    date: "31.07.2026"
+  },
+  {
+    name: "Ferran Torres",
+    wiki: "Ferran_Torres",
+    from: "Barcelona",
+    to: "PSG",
+    type: "Վաճառք",
+    dir: "out",
+    date: "15.08.2026"
+  },
+  {
+    name: "Ronald Araújo",
+    wiki: "Ronald_Araújo",
+    from: "Barcelona",
+    to: "Liverpool",
+    type: "Վարձակալություն",
+    dir: "out",
+    date: "10.08.2026"
+  },
+  {
+    name: "Marc-André ter Stegen",
+    wiki: "Marc-André_ter_Stegen",
+    from: "Barcelona",
+    to: "Ajax",
+    type: "Վարձակալություն",
+    dir: "out",
+    date: "04.08.2026"
+  },
+  {
+    name: "Ansu Fati",
+    wiki: "Ansu_Fati",
+    from: "Barcelona",
+    to: "AS Monaco",
+    type: "Վաճառք",
+    dir: "out",
+    date: "30.06.2026"
+  },
+  {
+    name: "Iñaki Peña",
+    wiki: "Iñaki_Peña",
+    from: "Barcelona",
+    to: "Panathinaikos",
+    type: "Վաճառք",
+    dir: "out",
+    date: "23.06.2026"
+  },
+  {
+    name: "Jofre Torrents",
+    wiki: "Jofre_Torrents",
+    from: "Barcelona",
+    to: "Ajax",
+    type: "Վաճառք",
+    dir: "out",
+    date: "17.08.2026"
+  },
+  {
+    name: "Tommy Marqués",
+    wiki: "Tommy_Marqués",
+    from: "Barcelona",
+    to: "SC Braga",
+    type: "Վաճառք",
+    dir: "out",
+    date: "21.08.2026"
+  },
+  {
+    name: "Héctor Fort",
+    wiki: "Héctor_Fort",
+    from: "Barcelona",
+    to: "Real Sociedad",
+    type: "Վաճառք",
+    dir: "out",
+    date: "29.08.2026"
+  },
+  {
+    name: "Álvaro Cortés",
+    wiki: "Álvaro_Cortés",
+    from: "Barcelona",
+    to: "Antwerp",
+    type: "Վաճառք",
+    dir: "out",
+    date: "01.09.2026"
+  },
+  {
+    name: "Toni Fernández",
+    wiki: "Toni_Fernández",
+    from: "Barcelona",
+    to: "Venezia",
+    type: "Վաճառք",
+    dir: "out",
+    date: "01.09.2026"
+  },
+  {
+    name: "Marc Casadó",
+    wiki: "Marc_Casadó",
+    from: "Barcelona",
+    to: "Deportivo A Coruña",
+    type: "Վարձակալություն",
+    dir: "out",
+    date: "01.09.2026"
+  },
+  {
+    name: "Xavi Espart",
+    wiki: "Xavi_Espart",
+    from: "Barcelona Atlètic",
+    to: "Barcelona-ի առաջին թիմ",
+    type: "Ակադեմիայից",
+    dir: "academy",
+    date: "27.08.2026"
+  },
+  {
+    name: "Brian Fariñas",
+    wiki: "Brian_Fariñas",
+    from: "La Masia",
+    to: "Barcelona-ի առաջին թիմ",
+    type: "Ակադեմիայից",
+    dir: "academy",
+    date: "01.09.2026"
+  }
+].map(player => ({ ...player, status: "official" }));
+
+const search = document.getElementById("search");
+const direction = document.getElementById("direction");
+const type = document.getElementById("type");
+const status = document.getElementById("status");
+const club = document.getElementById("club");
+const cards = document.getElementById("cards");
+const resultCount = document.getElementById("resultCount");
+const empty = document.getElementById("empty");
+
+function render() {
+  const query = search.value.trim().toLowerCase();
+
+  const filtered = transfers.filter(player => {
+    const text =
+      `${player.name} ${player.from} ${player.to}`.toLowerCase();
+
+    const matchesSearch = text.includes(query);
+    const matchesDirection =
+      direction.value === "all" ||
+      player.dir === direction.value;
+    const matchesType =
+      type.value === "all" ||
+      player.type === type.value;
+    const matchesStatus =
+      status.value === "all" ||
+      player.status === status.value;
+    const matchesClub =
+      club.value === "all" ||
+      player.from.includes(club.value) ||
+      player.to.includes(club.value);
+
+    return matchesSearch &&
+      matchesDirection &&
+      matchesType &&
+      matchesStatus &&
+      matchesClub;
+  });
+
+  resultCount.textContent =
+    `Գտնվել է ${filtered.length} տեղափոխություն`;
+
+  empty.style.display = filtered.length ? "none" : "block";
+
+  cards.innerHTML = filtered.map(player => {
+    const academy = player.dir === "academy";
+    const initials = player.name
+      .split(" ")
+      .map(part => part[0] || "")
+      .join("")
+      .slice(0, 3)
+      .toUpperCase();
+
+    return `
+      <article class="card">
+        <div class="photo">
+          <img
+            src="https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(player.wiki)}"
+            alt="${player.name}"
+            loading="lazy"
+            data-wiki="${player.wiki}"
+          >
+          <span class="number">${initials}</span>
+        </div>
+
+        <div class="card-content">
+          <h2>${player.name}</h2>
+
+          <span class="badge ${academy ? "academy" : ""}">
+            ✓ ${academy ? "Ակադեմիայից" : "Պաշտոնական"}
+          </span>
+
+          <div class="teams">
+            <div class="team">${player.from}</div>
+            <div class="arrow">→</div>
+            <div class="team">${player.to}</div>
+          </div>
+
+          <div class="info">
+            <b>Տեսակ՝</b> ${player.type}<br>
+            <b>Ամսաթիվ՝</b> ${player.date}
+          </div>
+
+          <a class="source" href="${SOURCE}"
+             target="_blank" rel="noopener">
+            Ստուգել պաշտոնական աղբյուրը ↗
+          </a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  cards.querySelectorAll("img").forEach(img => {
+    const wikiTitle = img.dataset.wiki;
+
+    fetch(
+      "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+      encodeURIComponent(wikiTitle)
+    )
+      .then(response => {
+        if (!response.ok) throw new Error("Image unavailable");
+        return response.json();
+      })
+      .then(data => {
+        if (data.thumbnail && data.thumbnail.source) {
+          img.src = data.thumbnail.source;
+        } else {
+          img.style.display = "none";
+        }
+      })
+      .catch(() => {
+        img.style.display = "none";
+      });
+  });
+}
+
+[search, direction, type, status, club].forEach(element => {
+  element.addEventListener("input", render);
+  element.addEventListener("change", render);
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  search.value = "";
+  direction.value = "all";
+  type.value = "all";
+  status.value = "all";
+  club.value = "all";
+  render();
+});
+
+render();
+</script>
+
+</body>
+</html>
+``````html
+<script src="script.js"></script>
+</body>
+```

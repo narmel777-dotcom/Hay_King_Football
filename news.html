@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAY KING FOOTBALL | Նորություններ</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#f4f6ff;font-family:Arial,sans-serif}
+header{padding:28px 6%;background:linear-gradient(120deg,#102c66,#111827 65%,#6b1028)}
+.logo{font-size:27px;font-weight:900;color:white;text-decoration:none}
+.logo span{color:#ffca28}
+header p{color:#d5def5}
+nav{display:flex;gap:22px;flex-wrap:wrap;padding:16px 6%;background:#121a2d;border-bottom:1px solid #293550}
+nav a{color:#e5e7eb;text-decoration:none;font-weight:bold}
+nav a:hover{color:#ffca28}
+.container{max-width:1200px;margin:auto;padding:28px 18px}
+.hero{padding:30px;border-radius:20px;background:linear-gradient(120deg,#173b83,#5b1638);margin-bottom:25px}
+.hero h1{font-size:clamp(28px,5vw,42px);margin:10px 0}
+.hero p{color:#e0e7ff;line-height:1.6}
+.search{width:100%;padding:15px;border:1px solid #33415e;border-radius:12px;background:#141e33;color:white;font-size:16px;margin:12px 0 18px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{padding:11px 16px;border:1px solid #34415d;border-radius:25px;background:#151e32;color:white;cursor:pointer;font-weight:bold}
+.filters button.active,.filters button:hover{background:#ffca28;color:#101827;border-color:#ffca28}
+.section-title{margin:28px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.card{background:#141d30;border:1px solid #293750;border-radius:17px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#ffca28}
+.card-top{padding:17px;background:linear-gradient(120deg,#1d2c49,#172033)}
+.league{font-size:12px;font-weight:900;color:#ffca28;letter-spacing:1px}
+.date{float:right;font-size:12px;color:#aab7d1}
+.score{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:center;padding:22px 12px}
+.team{flex:1;font-weight:bold;line-height:1.4}
+.number{font-size:30px;font-weight:900;white-space:nowrap}
+.card-body{padding:0 17px 18px}
+.card-body p{color:#c2cce0;line-height:1.6}
+.tag{display:inline-block;padding:5px 9px;border-radius:7px;background:#213c2d;color:#a8f0bd;font-size:12px;font-weight:bold}
+.read{display:inline-block;margin-top:8px;color:#ffca28;text-decoration:none;font-weight:bold}
+.read:hover{text-decoration:underline}
+.empty{display:none;padding:25px;text-align:center;color:#cbd5e1}
+footer{padding:25px;text-align:center;color:#9eabc5;border-top:1px solid #293750;margin-top:35px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">👑 HAY KING <span>FOOTBALL</span></a>
+  <p>⚽ Ֆուտբոլային նորություններ, մեծ խաղեր և իրական հաշիվներ</p>
+</header>
+
+<nav>
+  <a href="index.html">Գլխավոր</a>
+  <a href="news.html">Նորություններ</a>
+  <a href="transfers.html">Տրանսֆերներ</a>
+  <a href="results.html">Արդյունքներ</a>
+  <a href="teams.html">Թիմեր</a>
+</nav>
+
+<main class="container">
+  <section class="hero">
+    <div>🔥 ԱՄՍՎԱ ՈՒՇԱԳՐԱՎ ԽԱՂԵՐԸ</div>
+    <h1>Ֆուտբոլի աշխարհը՝ մեկ տեղում</h1>
+    <p>Դիտիր հայտնի ակումբների հաշիվները, գտիր քո սիրելի թիմը և բացիր խաղի մասին լրացուցիչ տեղեկությունները։</p>
+  </section>
+
+  <h2 class="section-title">🔎 Գտիր խաղը</h2>
+  <input id="search" class="search" placeholder="Փնտրիր ակումբ, առաջնություն կամ հաշիվ...">
+
+  <div class="filters">
+    <button class="active" data-filter="all">Բոլորը</button>
+    <button data-filter="ucl">🏆 Չեմպիոնների լիգա</button>
+    <button data-filter="laliga">🇪🇸 LaLiga</button>
+    <button data-filter="epl">🏴 Պրեմիեր լիգա</button>
+  </div>
+
+  <h2 class="section-title">🏆 Չեմպիոնների լիգա</h2>
+  <section class="grid">
+
+    <article class="card" data-league="ucl">
+      <div class="card-top"><span class="league">CHAMPIONS LEAGUE</span><span class="date">08.09.2026</span></div>
+      <div class="score"><div class="team">Real Madrid</div><div class="number">2–1</div><div class="team">Inter</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Ռեալը» հաղթանակով սկսեց մրցաշարի փուլը։</p><a class="read" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="ucl">
+      <div class="card-top"><span class="league">CHAMPIONS LEAGUE</span><span class="date">09.09.2026</span></div>
+      <div class="score"><div class="team">Barcelona</div><div class="number">5–1</div><div class="team">Feyenoord</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բարսելոնան» գոլառատ հաղթանակ տարավ։</p><a class="read" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="ucl">
+      <div class="card-top"><span class="league">CHAMPIONS LEAGUE</span><span class="date">09.09.2026</span></div>
+      <div class="score"><div class="team">PSG</div><div class="number">6–1</div><div class="team">Slovan</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>Փարիզյան ակումբը վեց գոլ խփեց։</p><a class="read" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="ucl">
+      <div class="card-top"><span class="league">CHAMPIONS LEAGUE</span><span class="date">10.09.2026</span></div>
+      <div class="score"><div class="team">Bayern</div><div class="number">5–0</div><div class="team">Bodø/Glimt</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բավարիան» վստահ հաղթանակ գրանցեց։</p><a class="read" target="_blank" rel="noopener" href="https://www.uefa.com/uefachampionsleague/">Կարդալ ավելին →</a></div>
+    </article>
+
+  </section>
+
+  <h2 class="section-title">🇪🇸 LaLiga — Իսպանիա</h2>
+  <section class="grid">
+
+    <article class="card" data-league="laliga">
+      <div class="card-top"><span class="league">LALIGA</span><span class="date">13.09.2026</span></div>
+      <div class="score"><div class="team">Levante</div><div class="number">2–4</div><div class="team">Barcelona</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բարսելոնան» հաղթեց արտագնա գոլառատ խաղում։</p><a class="read" target="_blank" rel="noopener" href="https://www.laliga.com/en-US/laliga-easports/results">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="laliga">
+      <div class="card-top"><span class="league">LALIGA</span><span class="date">12.09.2026</span></div>
+      <div class="score"><div class="team">Real Madrid</div><div class="number">4–1</div><div class="team">Rayo</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Ռեալը» չորս գոլ խփեց և հաղթեց մրցակցին։</p><a class="read" target="_blank" rel="noopener" href="https://www.laliga.com/en-US/laliga-easports/results">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="laliga">
+      <div class="card-top"><span class="league">LALIGA</span><span class="date">16.09.2026</span></div>
+      <div class="score"><div class="team">Barcelona</div><div class="number">7–2</div><div class="team">Racing</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բարսելոնայի» մասնակցությամբ գոլառատ հանդիպում։</p><a class="read" target="_blank" rel="noopener" href="https://www.laliga.com/en-US/laliga-easports/results">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="laliga">
+      <div class="card-top"><span class="league">LALIGA</span><span class="date">20.09.2026</span></div>
+      <div class="score"><div class="team">Atlético</div><div class="number">2–1</div><div class="team">Real Madrid</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>Մադրիդյան դերբիում հաղթեց «Ատլետիկոն»։</p><a class="read" target="_blank" rel="noopener" href="https://www.laliga.com/en-US/laliga-easports/results">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="laliga">
+      <div class="card-top"><span class="league">LALIGA</span><span class="date">10.10.2026</span></div>
+      <div class="score"><div class="team">Barcelona</div><div class="number">3–0</div><div class="team">Getafe</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բարսելոնան» հաղթեց 3։0 հաշվով։</p><a class="read" target="_blank" rel="noopener" href="https://www.laliga.com/en-US/laliga-easports/results">Կարդալ ավելին →</a></div>
+    </article>
+
+  </section>
+
+  <h2 class="section-title">🏴 Պրեմիեր լիգա — Անգլիա</h2>
+  <section class="grid">
+
+    <article class="card" data-league="epl">
+      <div class="card-top"><span class="league">PREMIER LEAGUE</span><span class="date">13.09.2026</span></div>
+      <div class="score"><div class="team">Man United</div><div class="number">0–1</div><div class="team">Man City</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>Մանչեսթերյան դերբիում հաղթեց «Սիթին»։</p><a class="read" target="_blank" rel="noopener" href="https://www.premierleague.com/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="epl">
+      <div class="card-top"><span class="league">PREMIER LEAGUE</span><span class="date">19.09.2026</span></div>
+      <div class="score"><div class="team">Brighton</div><div class="number">3–0</div><div class="team">Arsenal</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Բրայթոնը» հաղթեց «Արսենալին» երեք գոլի տարբերությամբ։</p><a class="read" target="_blank" rel="noopener" href="https://www.premierleague.com/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="epl">
+      <div class="card-top"><span class="league">PREMIER LEAGUE</span><span class="date">20.09.2026</span></div>
+      <div class="score"><div class="team">Man City</div><div class="number">5–3</div><div class="team">Sunderland</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>Ութ գոլով հանդիպում՝ «Մանչեսթեր Սիթիի» հաղթանակով։</p><a class="read" target="_blank" rel="noopener" href="https://www.premierleague.com/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="epl">
+      <div class="card-top"><span class="league">PREMIER LEAGUE</span><span class="date">10.10.2026</span></div>
+      <div class="score"><div class="team">Chelsea</div><div class="number">5–1</div><div class="team">Bournemouth</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Չելսին» սեփական դաշտում հինգ գոլ խփեց։</p><a class="read" target="_blank" rel="noopener" href="https://www.premierleague.com/">Կարդալ ավելին →</a></div>
+    </article>
+
+    <article class="card" data-league="epl">
+      <div class="card-top"><span class="league">PREMIER LEAGUE</span><span class="date">10.10.2026</span></div>
+      <div class="score"><div class="team">Arsenal</div><div class="number">2–1</div><div class="team">Leeds</div></div>
+      <div class="card-body"><span class="tag">Ավարտված</span><p>«Արսենալը» հետ մնալուց հետո հաղթանակ տարավ։</p><a class="read" target="_blank" rel="noopener" href="https://www.premierleague.com/">Կարդալ ավելին →</a></div>
+    </article>
+
+  </section>
+
+  <p id="empty" class="empty">Այս որոնմամբ խաղեր չեն գտնվել։ Փորձիր այլ անուն։</p>
+</main>
+
+<footer>
+  <strong>👑 HAY KING FOOTBALL</strong>
+  <p>Ֆուտբոլային նորություններ և խաղերի հաշիվներ</p>
+  <p>© <span id="year"></span> HAY KING FOOTBALL</p>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const buttons = document.querySelectorAll("[data-filter]");
+const cards = document.querySelectorAll(".card[data-league]");
+const empty = document.getElementById("empty");
+let currentFilter = "all";
+
+function filterCards() {
+  const query = search.value.toLowerCase().trim();
+  let shown = 0;
+
+  cards.forEach(card => {
+    const matchesLeague =
+      currentFilter === "all" || card.dataset.league === currentFilter;
+    const matchesSearch = card.innerText.toLowerCase().includes(query);
+    const visible = matchesLeague && matchesSearch;
+
+    card.style.display = visible ? "" : "none";
+    if (visible) shown++;
+  });
+
+  document.querySelectorAll(".grid").forEach(grid => {
+    const visibleCards = [...grid.querySelectorAll(".card")]
+      .some(card => card.style.display !== "none");
+    const heading = grid.previousElementSibling;
+    if (heading && heading.classList.contains("section-title")) {
+      heading.style.display = visibleCards ? "" : "none";
+    }
+  });
+
+  empty.style.display = shown ? "none" : "block";
+}
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    buttons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    currentFilter = button.dataset.filter;
+    filterCards();
+  });
+});
+
+search.addEventListener("input", filterCards);
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+<script src="6fe9c57691e84393b51ead3333c42589"></script>

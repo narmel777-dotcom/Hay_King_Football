@@ -1,0 +1,185 @@
+```html
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAY KING FOOTBALL</title>
+
+<style>
+*{box-sizing:border-box}
+:root{--gold:#f5c451;--bg:#080d19;--panel:#111b2e;--muted:#aab6cb}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#fff}
+a{color:inherit;text-decoration:none}
+header{background:#0e1728;border-bottom:1px solid #26344c;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-size:24px;font-weight:900;color:var(--gold)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font-weight:bold;color:#dce5f5}
+nav a:hover{color:var(--gold)}
+.hero{padding:75px 7%;background:radial-gradient(ellipse at 80% 30%,#203b65 0%,#101b31 40%,#080d19 78%);position:relative;overflow:hidden}
+.hero small{color:var(--gold);font-weight:bold;letter-spacing:3px}
+.hero h1{font-size:clamp(36px,6vw,66px);line-height:1.08;max-width:760px;margin:18px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#c3cee0;font-size:18px;max-width:600px;line-height:1.7}
+.btn{display:inline-block;margin:12px 10px 0 0;padding:13px 20px;background:var(--gold);color:#101522;border-radius:8px;font-weight:bold}
+.btn.secondary{background:transparent;color:#fff;border:1px solid #56647d}
+section{padding:38px 7%}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:22px}
+.section-head h2{margin:0;font-size:27px}
+.section-head h2 span{color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:linear-gradient(145deg,#15213a,#0f1728);border:1px solid #273550;border-radius:15px;padding:23px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#d6a83d}
+.card h3{margin:12px 0;color:#fff;font-size:21px}
+.card p{color:var(--muted);line-height:1.65}
+.eyebrow{color:var(--gold);font-size:12px;font-weight:bold;letter-spacing:1.5px}
+.tag{display:inline-block;padding:6px 10px;border-radius:6px;background:#3a2d14;color:#ffd875;font-size:12px;font-weight:bold}
+.tag.official{background:#123a2c;color:#8cf0ba}
+.player{font-size:43px}
+.card-link{display:inline-block;margin-top:8px;color:var(--gold);font-weight:bold}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+button{padding:10px 16px;border:1px solid #35435d;border-radius:8px;background:#121e33;color:white;font-weight:bold;cursor:pointer}
+button:hover,button.active{background:var(--gold);color:#111827;border-color:var(--gold)}
+.news-band{background:linear-gradient(110deg,#182947,#111a2d);border:1px solid #2c3e5b;border-radius:15px;padding:26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.news-band h3{margin:8px 0;font-size:23px}
+.news-band p{color:var(--muted);line-height:1.6}
+footer{text-align:center;padding:28px 15px;background:#0e1728;color:#9eabc1;border-top:1px solid #273550}
+[hidden]{display:none!important}
+@media(max-width:600px){header{padding:18px 5%}.logo{font-size:20px}nav{gap:13px}.hero{padding:55px 5%}section{padding:30px 5%}.hero p{font-size:16px}}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="logo" href="index.html">👑 HAY KING FOOTBALL</a>
+  <nav>
+    <a href="index.html">Գլխավոր</a>
+    <a href="transfers.html">Տրանսֆերներ</a>
+    <a href="news.html">Նորություններ</a>
+    <a href="#teams">Թիմեր</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <small>⚽ ՖՈՒՏԲՈԼԻ ԱՇԽԱՐՀ</small>
+    <h1>Ամենակարևորը՝ <span>ֆուտբոլի մասին</span></h1>
+    <p>Հետևիր տրանսֆերային լուրերին, բացահայտիր ֆուտբոլային նորությունները և եղիր քո սիրելի թիմի կողքին։</p>
+    <a class="btn" href="#transfers">Տրանսֆերներ →</a>
+    <a class="btn secondary" href="news.html">Վերջին նորությունները</a>
+  </div>
+
+  <section id="transfers">
+    <div class="section-head">
+      <h2>🔄 Տրանսֆերային <span>լուրեր</span></h2>
+      <a class="card-link" href="transfers.html">Բոլոր տրանսֆերները →</a>
+    </div>
+
+    <div class="filters">
+      <button class="active" data-filter="all">Բոլորը</button>
+      <button data-filter="official">Պաշտոնական</button>
+      <button data-filter="rumor">Լուրեր</button>
+    </div>
+
+    <div class="cards">
+      <article class="card transfer-card" data-status="rumor">
+        <div class="player">⚽</div>
+        <span class="tag">ՏՐԱՆՍՖԵՐԱՅԻՆ ԼՈՒՐ</span>
+        <h3>🔔 ԲԱԺԱՆՈՐԴԱԳՐՎԵՔ   Hay_King-ԻՆ</h3>
+        
+<a class="btn"
+   href="https://www.youtube.com/@HAY_KING63?sub_confirmation=1"
+   target="_blank"
+   rel="noopener noreferrer">
+  🔔 ԲԱԺԱՆՈՐԴԱԳՐՎԵՔ HAY KING-ԻՆ
+</a>
+</p>
+        <span class="tag">համագործակցության համար դիմիր ինձ</span>
+      </article>
+
+      <article class="card transfer-card" data-status="rumor">
+        <div class="player">🔵🔴</div>
+        <span class="tag">ԲԱՐՍԵԼՈՆԱ</span>
+        <h3>Կատալոնական ակումբ</h3>
+        <p>Հետևիր «Բարսելոնայի» հետ կապված տրանսֆերային նորություններին և պաշտոնական հայտարարություններին։</p>
+        <a class="card-link" href="transfers.html">Դիտել տրանսֆերները →</a>
+      </article>
+
+      <article class="card transfer-card" data-status="official">
+        <div class="player">✅</div>
+        <span class="tag official">ՊԱՇՏՈՆԱԿԱՆ</span>
+        <h3>Հաստատված տեղափոխություններ</h3>
+        <p>Պաշտոնական տեղափոխությունների մասին տեղեկությունները կարող ես դիտել տրանսֆերների էջում։</p>
+        <a class="card-link" href="transfers.html">Բացել էջը →</a>
+      </article>
+    </div>
+    <p style="color:#8998b0;font-size:13px;margin-top:16px">Նշում․ Հաալանդի՝ «Բարսելոնա» տեղափոխությունը հաստատված չէ։</p>
+  </section>
+
+  <section id="teams">
+    <div class="section-head">
+      <h2>🏆 Սիրված <span>թիմեր</span></h2>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="player">🔵🔴</div>
+        <h3>FC Barcelona</h3>
+        <p>Կատալոնական ակումբ՝ մեծ պատմությամբ և հավատարիմ երկրպագուներով։</p>
+        <a class="card-link" href="https://www.fcbarcelona.com/" target="_blank" rel="noopener">Պաշտոնական կայք ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="player">⚪</div>
+        <h3>Real Madrid</h3>
+        <p>Իսպանական ֆուտբոլի ամենահայտնի ակումբներից մեկը։</p>
+        <a class="card-link" href="https://www.realmadrid.com/" target="_blank" rel="noopener">Պաշտոնական կայք ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="player">🔵</div>
+        <h3>Manchester City</h3>
+        <p>Անգլիական ակումբ, որտեղ խաղում է Էրլինգ Հաալանդը։</p>
+        <a class="card-link" href="https://www.mancity.com/" target="_blank" rel="noopener">Պաշտոնական կայք ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="news-band">
+      <div>
+        <span class="eyebrow">HAY KING NEWS</span>
+        <h3>Ֆուտբոլային նորությունները՝ մեկ տեղում</h3>
+        <p>Կարդա հանդիպումների մասին նյութերը, հետևիր հաշիվներին և բաց մի թող կարևոր իրադարձությունները։</p>
+      </div>
+      <a class="btn" href="news.html">Կարդալ նորությունները →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> HAY KING FOOTBALL · Ֆուտբոլը մեր կիրքն է ⚽
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const filterButtons = document.querySelectorAll("[data-filter]");
+const transferCards = document.querySelectorAll(".transfer-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    transferCards.forEach(card => {
+      card.hidden = filter !== "all" && card.dataset.status !== filter;
+    });
+  });
+});
+</script>
+</body>
+</html>
+```
